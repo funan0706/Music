@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.MusicDao">
+
+    <select id="findByName" resultType="Music">
+        select * from music where title = #{title}
+    </select>
+
+<!--    List<Music> recommend();-->
+    <select id="recommend" resultType="Music">
+        select * from music order by RAND() limit 9
+    </select>
+
+    <select id="findById" resultType="Music">
+        select * from music where id=#{id}
+    </select>
+
+    <select id="findAll" resultType="Music">
+        select * from music
+    </select>
+</mapper>
